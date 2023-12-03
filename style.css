@@ -12,10 +12,8 @@
     width: 70%;
     margin: auto;
     display: grid;
-    background-image: url(img/bg_ART.jpg);
+    background: url(img/bg_ART.jpg) center/cover no-repeat fixed;
     background-position-y: -100px;
-    background-size: cover;
-    background-repeat: no-repeat;
     border: solid 4px var(--gray);
     border-radius: var(--radius);
     padding: var(--20px);
@@ -42,13 +40,16 @@ div > input[type=button]:hover, .backgroundGallery > img:hover {
 
 div>input[type=button]:active,
 .backgroundGallery>img:active {
-    opacity: .8;
+    opacity: .5;
 }
 div > input[type=button]:last-child {
     background-color: rgb(255, 89, 0);
     border: var(--border);
 }
 
+div>input[type=text]:hover {
+    cursor: default;
+}
 div > input[type=text] {
     margin-bottom: 12px;
     width: 100%;
@@ -59,20 +60,53 @@ div > input[type=text] {
     text-align: right;
     font-size: var(--20px);
     padding-right: 10px;
+    overflow-x: scroll;
 }
 
 .backgroundGallery {
     padding: var(--5px);
     margin: 30px auto;
     width: 80%;
-    gap: var(--5px);
+    gap: var(--20px);
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(180px, 0fr));
     border: var(--border);
     border-radius: var(--radius);
+    justify-content: center;
 }
 
 .backgroundGallery > img {
     width: 180px;
     height: 220px;
+}
+@media (max-width: 600px) {
+
+    .container {
+        background-position-y: 0px;
+    }
+
+    .backgroundGallery {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 0fr));
+        justify-content: center;
+        padding: var(--20px);
+        height: 200px;
+        overflow: scroll;
+        border-radius: var(--5px);
+    }
+
+    .backgroundGallery>img {
+        width: 100px;
+        height: 140px;
+        margin: auto;
+    }
+
+    div>input[type=button]:hover,
+    .backgroundGallery>img:hover {
+        opacity: 1;
+    }
+
+    div>input[type=button]:active,
+    .backgroundGallery>img:active {
+        opacity: .5;
+    }
 }

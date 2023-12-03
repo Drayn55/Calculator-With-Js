@@ -25,7 +25,7 @@ Container.addEventListener('click', function(e) {
 const backgroundGallery = document.querySelector('.backgroundGallery');
 
 backgroundGallery.addEventListener('click', function(e) {
-    if (e.class !== 'backgroundGallery') {
+    if (e.class !== 'backgroundGallery' && e.target.className == 'gallery') {
         Container.style.backgroundImage = "url('" + e.target.src + "')";
     }
 })
